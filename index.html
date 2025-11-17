@@ -292,6 +292,151 @@
             animation-delay: 4s;
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 25px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--accent-1);
+            animation: modalSlideIn 0.4s ease-out;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            padding: 30px;
+            border-radius: 22px 22px 0 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: white;
+            margin: 0;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 40px;
+            color: var(--text-primary);
+        }
+
+        .origin-section {
+            margin-bottom: 35px;
+        }
+
+        .origin-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--accent-1);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .origin-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-2);
+        }
+
+        .origin-item-title {
+            font-weight: 700;
+            color: var(--accent-1);
+            margin-bottom: 5px;
+        }
+
+        .origin-item-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .clickable {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .clickable::after {
+            content: '👆 Click to read the full story!';
+            font-size: 0.85rem;
+            color: var(--accent-2);
+            font-style: italic;
+            margin-left: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .clickable:hover::after {
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
             .hero-title {
                 letter-spacing: 1px;
@@ -358,7 +503,7 @@
 
         <section class="content-section">
             <div class="facts-container">
-                <div class="fact-item">
+                <div class="fact-item clickable" id="originBtn">
                     <strong>Name Origin:</strong> From the formal "Ethem Beldagli" to the legendary "Double Eethem Boldagus" - a transformation worthy of its own origin story.
                 </div>
 
@@ -382,6 +527,76 @@
         </footer>
     </div>
 
+    <!-- Modal -->
+    <div class="modal-overlay" id="originModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">🌍 The Epic Origin Story</h2>
+                <button class="close-btn" id="closeModal">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="origin-section">
+                    <h3 class="origin-section-title">✨ Early Life: A Journey Across Continents</h3>
+                    <div class="origin-item">
+                        <div class="origin-item-title">🇬🇧 Born in the UK</div>
+                        <div class="origin-item-text">Ethem Beldagli entered the world in the United Kingdom, carrying with him a spark of curiosity and a destiny that would eventually earn him the most legendary nickname in history.</div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-item-title">🇰🇷 The Korean Chapter</div>
+                        <div class="origin-item-text">His family relocated to South Korea during his early childhood. Though he was young, the vibrant culture, bustling streets of Seoul, and the rhythm of a different world left impressions that would stay with him forever.</div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-item-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Return to the UK at Age 5</div>
+                        <div class="origin-item-text">By the time he was five, Ethem was back in the UK, ready to grow up with a unique blend of experiences from two very different worlds. Little did he know, his greatest adventure was about to begin...</div>
+                    </div>
+                </div>
+
+                <div class="origin-section">
+                    <h3 class="origin-section-title">🏫 Secondary School: Where Legends Are Born</h3>
+                    <div class="origin-item">
+                        <div class="origin-item-title">🤝 Meeting Aarav - The Beginning of Brotherhood</div>
+                        <div class="origin-item-text">When Ethem started secondary school, fate intervened. He met Aarav—a boy whose humor and creativity matched his own. Their connection was instant, built on shared jokes, endless adventures, and the kind of loyalty that defines lifelong friendships. This wasn't just any friendship; this was the birth of a legendary duo.</div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-item-title">😄 The Master of Nicknames</div>
+                        <div class="origin-item-text">Aarav possessed a rare gift—the ability to craft nicknames that were more than just silly labels. He delighted in playful teasing and came up with funny nicknames for Ethem, each one more creative and outrageous than the last. But Aarav was saving his masterpiece...</div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-item-title">⚡ The Birth of "Double Eethem Boldagus"</div>
+                        <div class="origin-item-text">Among all the nicknames, ONE stood out above the rest—a nickname so perfect, so memorable, it would echo through the halls of time: <strong>"DOUBLE EETHEM BOLDAGUS."</strong> It was silly. It was bold. It was LEGENDARY. This wasn't just a nickname—it was a badge of their friendship, an inside joke that could make them laugh no matter what life threw at them.</div>
+                    </div>
+                </div>
+
+                <div class="origin-section">
+                    <h3 class="origin-section-title">🌟 The Bond That Changed Everything</h3>
+                    <div class="origin-item">
+                        <div class="origin-item-title">💫 Humor as the Foundation</div>
+                        <div class="origin-item-text">Aarav's nicknames weren't just jokes—they were a way of celebrating Ethem's quirks, his journey, and everything that made him unique. Each nickname was a thread in the tapestry of their friendship.</div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-item-title">🛡️ Brothers in Spirit</div>
+                        <div class="origin-item-text">Together, they navigated the ups and downs of school life, armed with laughter and an unshakable bond of shared mischief. Aarav wasn't just a friend—he became Ethem's brother in spirit.</div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-item-title">🔥 The Name That Stuck Forever</div>
+                        <div class="origin-item-text">"Double Eethem Boldagus" transcended being just a nickname. It became a symbol of their friendship, a testament to creativity, and a reminder that sometimes the most powerful stories are born from pure, unadulterated laughter.</div>
+                    </div>
+                </div>
+
+                <div class="origin-section">
+                    <h3 class="origin-section-title">🧭 The Legacy Lives On</h3>
+                    <div class="origin-item-text" style="font-size: 1.1rem; line-height: 1.8;">
+                        Ethem Beldagli's story is one of journeys across continents—from the UK to South Korea and back again. But his <em>greatest</em> adventure began not in a far-off land, but in a school hallway with Aarav by his side.<br><br>
+
+                        His legend wasn't forged in battles or mythical quests. It was born in laughter, in the creative spark of friendship, and in the kind of bond that turns ordinary days into unforgettable stories.<br><br>
+
+                        <strong style="color: var(--accent-1); font-size: 1.3rem;">Double Eethem Boldagus</strong> lives on as the nickname that captured the spirit of their brotherhood—a name that will echo through the halls of memory forever. 🔥✨
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Dark mode support
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -403,6 +618,39 @@
                     this.style.transform = '';
                 }, 300);
             });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('originModal');
+        const originBtn = document.getElementById('originBtn');
+        const closeBtn = document.getElementById('closeModal');
+
+        // Open modal
+        originBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close modal
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     </script>
 </body>
