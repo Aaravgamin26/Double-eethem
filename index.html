@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double Eethem Boldagus</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ethem's Legendary Nicknames</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #FFF8E7;
@@ -437,6 +437,225 @@
             opacity: 1;
         }
 
+        /* Top 3 Ranking Styles */
+        .top3-header {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .top3-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .top3-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        .rankings {
+            display: grid;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .rank-card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 15px 40px var(--shadow);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .rank-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .rank-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px var(--shadow);
+        }
+
+        .rank-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .rank-1 {
+            border: 4px solid #FFD700;
+        }
+
+        .rank-1::before {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .rank-2 {
+            border: 4px solid #C0C0C0;
+        }
+
+        .rank-2::before {
+            background: linear-gradient(135deg, #C0C0C0, #A9A9A9);
+        }
+
+        .rank-3 {
+            border: 4px solid #CD7F32;
+        }
+
+        .rank-3::before {
+            background: linear-gradient(135deg, #CD7F32, #B87333);
+        }
+
+        .rank-number {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Righteous', sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .rank-1 .rank-number {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .rank-2 .rank-number {
+            background: linear-gradient(135deg, #C0C0C0, #A9A9A9);
+        }
+
+        .rank-3 .rank-number {
+            background: linear-gradient(135deg, #CD7F32, #B87333);
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 4rem;
+            z-index: 5;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .rank-content {
+            position: relative;
+            z-index: 5;
+            padding-top: 20px;
+        }
+
+        .nickname {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--accent-1);
+            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        .nickname-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .nickname-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 15px;
+            background: var(--bg-primary);
+            border-radius: 15px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-1);
+            margin-top: 5px;
+        }
+
+        .origin-cta {
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            padding: 50px 30px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 60px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .origin-cta::before {
+            content: '📖';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15rem;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .origin-cta:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px var(--shadow);
+        }
+
+        .origin-cta h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+        }
+
+        .origin-cta p {
+            color: white;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            position: relative;
+            z-index: 1;
+        }
+
         @media (max-width: 768px) {
             .hero-title {
                 letter-spacing: 1px;
@@ -457,6 +676,35 @@
             .floating-emoji {
                 display: none;
             }
+
+            .rank-card {
+                padding: 30px 20px;
+            }
+
+            .rank-badge {
+                font-size: 3rem;
+                top: 15px;
+                right: 15px;
+            }
+
+            .rank-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                left: 20px;
+            }
+
+            .nickname-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .origin-cta {
+                padding: 40px 20px;
+            }
+
+            .origin-cta::before {
+                font-size: 8rem;
+            }
         }
     </style>
 </head>
@@ -469,61 +717,107 @@
 
     <div class="container">
         <header>
-            <h1 class="hero-title">DOUBLE<br>EETHEM<br>BOLDAGUS</h1>
-            <p class="subtitle">// LEGENDARY STATUS UNLOCKED //</p>
-            <p class="aka">a.k.a. Ethem Beldagli</p>
+            <h1 class="hero-title">ETHEM'S<br>LEGENDARY<br>NICKNAMES</h1>
+            <p class="subtitle">// RANKED BY PURE AWESOMENESS //</p>
+            <p class="aka">Created by Aarav, the Nickname Master</p>
         </header>
 
         <section class="content-section">
-            <div class="nickname-grid">
-                <div class="card">
-                    <span class="card-icon">👤</span>
-                    <h3 class="card-title">Official Name</h3>
-                    <p class="card-text">Ethem Beldagli - the government-approved version, suitable for paperwork and formal occasions.</p>
+            <div class="top3-header">
+                <h2 class="top3-title">TOP 3 RANKINGS</h2>
+                <p class="top3-subtitle">The most legendary nicknames in existence</p>
+            </div>
+
+            <div class="rankings">
+                <!-- Rank 1 -->
+                <div class="rank-card rank-1">
+                    <div class="rank-number">#1</div>
+                    <div class="rank-badge">🥇</div>
+                    <div class="rank-content">
+                        <h3 class="nickname">Ethem Biggly Boggly Beldagli</h3>
+                        <p class="nickname-description">
+                            The crown jewel of Aarav's creative genius! "Biggly Boggly" isn't just a nickname—it's a rhythmic masterpiece that rolls off the tongue with unmatched swagger. The alliteration is *chef's kiss*, the sound is pure comedy gold, and it captures the essence of legendary friendship in three perfect words.
+                        </p>
+                        <div class="nickname-stats">
+                            <div class="stat">
+                                <div class="stat-label">Rhythm</div>
+                                <div class="stat-value">100%</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Memorability</div>
+                                <div class="stat-value">∞</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Laughs/Min</div>
+                                <div class="stat-value">9999</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card">
-                    <span class="card-icon">🎭</span>
-                    <h3 class="card-title">Street Name</h3>
-                    <p class="card-text">Double Eethem Boldagus - the legendary nickname that commands respect and raises eyebrows.</p>
+                <!-- Rank 2 -->
+                <div class="rank-card rank-2">
+                    <div class="rank-number">#2</div>
+                    <div class="rank-badge">🥈</div>
+                    <div class="rank-content">
+                        <h3 class="nickname">Ethem Boldegus Beldagus</h3>
+                        <p class="nickname-description">
+                            A masterclass in wordplay! Aarav took "Beldagli" and transformed it into the dynamic duo of "Boldegus Beldagus." It's sophisticated yet silly, creative yet catchy. This nickname represents the perfect fusion of boldness and playfulness—a true runner-up worthy of its silver medal status.
+                        </p>
+                        <div class="nickname-stats">
+                            <div class="stat">
+                                <div class="stat-label">Creativity</div>
+                                <div class="stat-value">95%</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Wordplay</div>
+                                <div class="stat-value">Elite</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Style Points</div>
+                                <div class="stat-value">A+</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card">
-                    <span class="card-icon">⚡</span>
-                    <h3 class="card-title">Power Level</h3>
-                    <p class="card-text">DOUBLE - not single, not triple, but perfectly balanced as all things should be.</p>
+                <!-- Rank 3 -->
+                <div class="rank-card rank-3">
+                    <div class="rank-number">#3</div>
+                    <div class="rank-badge">🥉</div>
+                    <div class="rank-content">
+                        <h3 class="nickname">Double Eethem Boldagus</h3>
+                        <p class="nickname-description">
+                            The OG legend that started it all! "Double Eethem Boldagus" holds a special place in history—it's the nickname that became a symbol of friendship, the one that echoes through the halls of memory. While it ranks third, it's still an absolute icon. Sometimes classics are classics for a reason. 🔥
+                        </p>
+                        <div class="nickname-stats">
+                            <div class="stat">
+                                <div class="stat-label">Legacy</div>
+                                <div class="stat-value">MAX</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Impact</div>
+                                <div class="stat-value">2X</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Iconic Status</div>
+                                <div class="stat-value">✓</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <div class="double-feature">
-            <h2>Why DOUBLE?</h2>
-            <p>Because one Eethem simply wasn't enough. When you're this legendary, you need double the presence, double the energy, and double the Boldagus.</p>
+        <!-- Origin Story CTA -->
+        <div class="origin-cta" id="originBtn">
+            <h2>📖 Read the Full Origin Story</h2>
+            <p>Discover how Aarav created these legendary nicknames and the friendship that inspired them all!</p>
         </div>
 
-        <section class="content-section">
-            <div class="facts-container">
-                <div class="fact-item clickable" id="originBtn">
-                    <strong>Name Origin:</strong> From the formal "Ethem Beldagli" to the legendary "Double Eethem Boldagus" - a transformation worthy of its own origin story.
-                </div>
-
-                <div class="fact-item">
-                    <strong>Nickname Status:</strong> Not just any nickname - this is a carefully crafted alter ego that exists in its own universe of awesome.
-                </div>
-
-                <div class="fact-item">
-                    <strong>The "Double" Factor:</strong> Twice the impact, double the memorability. Some legends are born, others are doubled.
-                </div>
-
-                <div class="fact-item">
-                    <strong>Boldagus Energy:</strong> A unique blend of bold + audacious + genius + us. Patent pending.
-                </div>
-            </div>
-        </section>
-
         <footer>
-            <p>✨ This page celebrates the legend that is Double Eethem Boldagus ✨</p>
-            <p style="margin-top: 10px; opacity: 0.7;">Powered by legendary nicknames & creative wordplay</p>
+            <p>✨ Celebrating Ethem Beldagli's legendary nicknames ✨</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Crafted by Aarav • Ranked by awesomeness • Remembered forever</p>
         </footer>
     </div>
 
@@ -608,16 +902,6 @@
             } else {
                 document.documentElement.classList.remove('dark');
             }
-        });
-
-        // Add some interactive sparkle
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = 'scale(1.05) rotate(2deg)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 300);
-            });
         });
 
         // Modal functionality
