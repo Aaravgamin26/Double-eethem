@@ -656,6 +656,86 @@
             z-index: 1;
         }
 
+        /* Classic Phrase Section */
+        .classic-phrase {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            margin: 60px 0;
+            padding: 50px 40px;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .classic-phrase::before {
+            content: '💬';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            font-size: 15rem;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .classic-phrase-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .classic-phrase-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .classic-phrase-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .classic-phrase-quote {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: white;
+            font-style: italic;
+            margin-bottom: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .classic-phrase-quote::before {
+            content: '"';
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .classic-phrase-quote::after {
+            content: '"';
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .classic-phrase-description {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
         /* Other Nicknames Section */
         .other-nicknames {
             margin: 60px 0;
@@ -916,6 +996,18 @@
             </div>
         </section>
 
+        <!-- Classic Phrase Section -->
+        <section class="classic-phrase">
+            <div class="classic-phrase-header">
+                <div class="classic-phrase-label">🎓 Legendary Classroom Moment</div>
+                <h2 class="classic-phrase-title">The Classic Correction</h2>
+            </div>
+            <p class="classic-phrase-quote">It's Ethem miss</p>
+            <p class="classic-phrase-description">
+                Every time a teacher mispronounces his name, Ethem delivers this iconic phrase with perfect comedic timing. It's become a legendary catchphrase that never gets old—a polite yet hilarious correction that has echoed through countless classrooms. Some heroes wear capes; Ethem just corrects pronunciation like a boss. 😎
+            </p>
+        </section>
+
         <!-- Origin Story CTA -->
         <div class="origin-cta" id="originBtn">
             <h2>📖 Read the Full Origin Story</h2>
@@ -924,7 +1016,7 @@
 
         <footer>
             <p>✨ Celebrating Ethem Beldagli's legendary nicknames ✨</p>
-            <p style="margin-top: 10px; opacity: 0.7;">Crafted by Aarav • Ranked by awesomeness • Remembered forever</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Crafted by Aarav ��� Ranked by awesomeness • Remembered forever</p>
             <p style="margin-top: 15px; font-weight: 700; color: var(--text-primary);">© Copyright Aarav Jajoo and Ethem Beldagli</p>
         </footer>
     </div>
